@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Strings</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #f0e1e1;
+            margin: 0;
+            padding: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #000500;
+            text-align: center;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        li:hover {
+            transform: scale(1.05);
+            background-color: #000501;
+        }
+    </style>
+</head>
+<body>
+    <div id="output"></div>
+
+    <script>
+        const strings = ["dog", "cat", "bird", "fish"];
+        const reverse = strings.map(str => str.split('').reverse().join(''));
+        const ul = document.createElement('ul');
+        reverse.forEach(reversedStr => {
+            const li = document.createElement('li');
+            li.innerHTML = reversedStr;
+            ul.appendChild(li);
+        });
+        document.getElementById('output').appendChild(ul);
+    </script>
+</body>
+</html>

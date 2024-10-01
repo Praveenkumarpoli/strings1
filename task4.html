@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Vowels in Words</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background: #e2f7e2;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        li:hover {
+            transform: scale(1.05);
+            background-color: #c8e6c9;
+        }
+    </style>
+</head>
+<body>
+    <div id="output"></div>
+
+    <script>
+        const words = ["praveen", "Lokesh", "Aravind"];
+
+        const countVowels = word => {
+            let count = 0;
+            const vowels = 'aeiouAEIOU';
+
+            for (let char of word) {
+                if (vowels.includes(char)) {
+                    count++;
+                }
+            }
+
+            return count;
+        };
+        const vowelCounts = words.map(word => {
+            const count = countVowels(word);
+            return `${word} (${count} vowel${count !== 1 ? 's' : ''})`;
+        });
+        const ul = document.createElement('ul');
+        vowelCounts.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            ul.appendChild(li);
+        });
+        document.getElementById('output').appendChild(ul);
+    </script>
+</body>
+</html>
